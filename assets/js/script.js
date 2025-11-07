@@ -57,4 +57,6 @@ function clearTaches(){
     document.querySelectorAll(".fait").forEach(element => {
         element.remove();
     });
+
+    //listeFait.innerHTML = "";
 }
