@@ -6,7 +6,8 @@ var boutonTache = document.getElementById("boutonAjout");
 var saisieTache = document.getElementById("saisie-tache");
 var listeAFaire = document.getElementById("listeAFaire");
 var listeFait = document.getElementById("listeFait");
-var poubelle = document.querySelector("icone-trash");
+var tache;
+var poubelle = document.querySelector('.icone-trash');
 
 // ====================================================
 // =  Déclaration des événements                      =
@@ -35,20 +36,23 @@ poubelle.addEventListener("click", clearTaches);
  */
 function ajouterTache(){
     if (saisieTache.value != ""){
-        let tache = document.createElement("li");
+        tache = document.createElement("li");
         tache.innerText = saisieTache.value;
         tache.className = "tache";
         listeAFaire.append(tache);
         saisieTache.value = "";
-        //tache.addEventListener("click", enleverTache);
+        tache.addEventListener("click", enleverTache);
     }
 }
 
-function enleverTache(){
-    tache.classList.add("fait");
-    listeFait.append(tache);
+function enleverTache(e){
+    let tacheFait = e.target;
+    listeFait.append(tacheFait);
+    tacheFait.classList.add("fait");
+    tacheFait.removeEventListener("click", enleverTache);
 }
 
 function clearTaches(){
-    listeFait.
+    console.log("allo");
+    document.querySelector('.fait').remove();
 }
