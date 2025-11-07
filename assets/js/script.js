@@ -54,5 +54,7 @@ function enleverTache(e){
 
 function clearTaches(){
     console.log("allo");
-    document.querySelector('.fait').remove();
+    document.querySelectorAll(".fait").forEach(element => {
+        element.remove();
+    });
 }
